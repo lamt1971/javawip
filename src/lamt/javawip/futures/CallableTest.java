@@ -13,11 +13,11 @@ public class CallableTest {
         ExecutorService executor = null;
         try{
             //Executor Service with fixed pool
-            executor = Executors.newFixedThreadPool(3);
+            executor = Executors.newFixedThreadPool(10);
             //Double Ended Queue to hold Futures. 
             Deque<Future<ResultDTO>> futures = new ArrayDeque<>();
             //Load up Callable and submit to executor service.... which returns a Future
-            for(int i=0; i<30;i++){
+            for(int i=0; i<100;i++){
                 Future<ResultDTO> result = executor.submit(new CallableImpl("callable_" + i));
                 futures.add(result);
             }
@@ -44,7 +44,9 @@ public class CallableTest {
                 }
             }
         }finally{
-            executor.shutdown();
+            if (executor!=null){
+                executor.shutdown();
+            }
         }
     }
     
