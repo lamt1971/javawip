@@ -12,36 +12,60 @@ public class PrimeNumberTest {
     public static void main(String[] args) {
         // TODO Auto-generated method stub
         LocalTime now = LocalTime.now();
+        System.out.println("is classic Prime = " + PrimeNumberTest.classicPrimeNumber(-2));
+        System.out.println("Time taken : " + Duration.between(now, LocalTime.now()).toMillis());
+        System.out.println("is classic Prime = " + PrimeNumberTest.classicPrimeNumber(0));
+        System.out.println("Time taken : " + Duration.between(now, LocalTime.now()).toMillis());
+        System.out.println("is classic Prime = " + PrimeNumberTest.classicPrimeNumber(1));
+        System.out.println("Time taken : " + Duration.between(now, LocalTime.now()).toMillis());
+        System.out.println("is classic Prime = " + PrimeNumberTest.classicPrimeNumber(2));
+        System.out.println("Time taken : " + Duration.between(now, LocalTime.now()).toMillis());
+        System.out.println("is classic Prime = " + PrimeNumberTest.classicPrimeNumber(3));
+        System.out.println("Time taken : " + Duration.between(now, LocalTime.now()).toMillis());
+        System.out.println("is classic Prime = " + PrimeNumberTest.classicPrimeNumber(-1999));
+        System.out.println("Time taken : " + Duration.between(now, LocalTime.now()).toMillis());
         System.out.println("is classic Prime = " + PrimeNumberTest.classicPrimeNumber(1999));
         System.out.println("Time taken : " + Duration.between(now, LocalTime.now()).toMillis());
 
         
         now = LocalTime.now();
+        System.out.println("is lambda Prime = " + PrimeNumberTest.lambdaPrimeNumber(-2));
+        System.out.println("Time taken : " + Duration.between(now, LocalTime.now()).toMillis());
+        System.out.println("is lambda Prime = " + PrimeNumberTest.lambdaPrimeNumber(0));
+        System.out.println("Time taken : " + Duration.between(now, LocalTime.now()).toMillis());
+        System.out.println("is lambda Prime = " + PrimeNumberTest.lambdaPrimeNumber(1));
+        System.out.println("Time taken : " + Duration.between(now, LocalTime.now()).toMillis());
+        System.out.println("is lambda Prime = " + PrimeNumberTest.lambdaPrimeNumber(2));
+        System.out.println("Time taken : " + Duration.between(now, LocalTime.now()).toMillis());
+        System.out.println("is lambda Prime = " + PrimeNumberTest.lambdaPrimeNumber(3));
+        System.out.println("Time taken : " + Duration.between(now, LocalTime.now()).toMillis());
+        System.out.println("is lambda Prime = " + PrimeNumberTest.lambdaPrimeNumber(-1999));
+        System.out.println("Time taken : " + Duration.between(now, LocalTime.now()).toMillis());
         System.out.println("is lambda Prime = " + PrimeNumberTest.lambdaPrimeNumber(1999));
         System.out.println("Time taken : " + Duration.between(now, LocalTime.now()).toMillis());
         
-        now = LocalTime.now();
+/*        now = LocalTime.now();
         System.out.println("Get Classic All Primes");
         List<Integer> result =  PrimeNumberTest.classicGetAllPrimeNumbers(100000);
         System.out.println("Time taken : " + Duration.between(now, LocalTime.now()).toMillis());
-//        result.forEach((prime) -> {System.out.println("prime number : " + prime);});
+        result.forEach((prime) -> {System.out.println("prime number : " + prime);});
         
         now = LocalTime.now();
         System.out.println("Get Lambda All Primes");
         result =  PrimeNumberTest.lambdaGetAllPrimeNumbers(100000);
         System.out.println("Time taken : " + Duration.between(now, LocalTime.now()).toMillis());
-//        result.forEach((prime) -> {System.out.println("prime number : " + prime);});
+        result.forEach((prime) -> {System.out.println("prime number : " + prime);});
         
         now = LocalTime.now();
         System.out.println("Get Lambda All Parallel Primes");
         result =  PrimeNumberTest.lambdaGetAllParallelPrimeNumbers(100000);
         System.out.println("Time taken : " + Duration.between(now, LocalTime.now()).toMillis());
-//        result.forEach((prime) -> {System.out.println("prime number : " + prime);});
-    }
+        result.forEach((prime) -> {System.out.println("prime number : " + prime);});
+*/    }
 
 
     public static boolean classicPrimeNumber(int input){      
-//      System.out.println("classicPrimeNumber input=" + input);
+      System.out.println("classicPrimeNumber input=" + input);
       if (input < 2){
           return false;
       }else{
@@ -60,11 +84,17 @@ public class PrimeNumberTest {
     }
 
     public static boolean lambdaPrimeNumber(int input){      
-//        System.out.println("lambdaPrimeNumber input=" + input);
+        System.out.println("lambdaPrimeNumber input=" + input);
+        if (input < 2){
+            return false;
+        }
+        if (input == 2){
+            return true;
+        }
         int range = input/2;        
-        return input==2 || input==2 || input > 3 && IntStream.range(2, range).noneMatch((index) -> {
-            return input % index==0;
-            });
+        return IntStream.range(2, range).noneMatch((index) -> {
+                return input % index==0;
+                });
     }
         
 
