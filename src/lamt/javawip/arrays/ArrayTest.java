@@ -9,8 +9,8 @@ public class ArrayTest {
         
         List<String> data = Arrays.asList("1", "2", "3");
         String[] dataArr = data.toArray(new String[data.size()]);
-        for (String string : dataArr) {
-            System.out.println(string);
+        for (String dstring : dataArr) {
+            System.out.println(dstring);
         }
     }
 
