@@ -11,6 +11,8 @@ public class ArrayTest {
         String[] dataArr = data.toArray(new String[data.size()]);
         for (String dstring : dataArr) {
             System.out.println(dstring);
+            System.out.println(dstring);
+            System.out.println(dstring);
         }
     }
 
